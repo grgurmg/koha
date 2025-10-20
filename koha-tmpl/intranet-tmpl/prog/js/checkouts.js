@@ -709,7 +709,7 @@ var barcodefield = $("#barcode");
 
 if (AlwaysLoadCheckoutsTable) {
     if (LoadCheckoutsTableDelay) {
-        setTimeout(function () {
+        loadIssuesTableDelayTimeoutId = setTimeout(function () {
             LoadIssuesTable();
         }, LoadCheckoutsTableDelay * 1000);
     } else {
@@ -725,14 +725,14 @@ if (AlwaysLoadCheckoutsTable) {
     $("#issues-table-load-now-button").click(function () {
         if (loadIssuesTableDelayTimeoutId)
             clearTimeout(loadIssuesTableDelayTimeoutId);
-        LoadIssuesTable();
+        ();
         barcodefield.focus();
         return false;
     });
 
     if (Cookies.get("issues-table-load-immediately-" + script) == "true") {
         if (LoadCheckoutsTableDelay) {
-            setTimeout(function () {
+            loadIssuesTableDelayTimeoutId = setTimeout(function () {
                 LoadIssuesTable();
             }, LoadCheckoutsTableDelay * 1000);
         } else {
